@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Image Upload</title>
+	<link rel="shortcut icon" href="../../favicon.ico">
+
+	<!-- Font -->
+	<!-- Theme Check and Update -->
+	<script>
+		const html = document.querySelector('html');
+		html.classList.add('dark');
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+	<!-- <link rel="stylesheet" href="./style.css"> -->
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@3.0.1/src/plugins/accordion/variants.min.css">
+	<style>
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body class="dark:bg-neutral-900">
+	<div id="toasts" style="position: fixed; top: 0; right: 0; z-index: 9999; margin-right: 30px; margin-top: 15px;">
+	</div>
+	<!-- Content -->
+	<div class="relative h-screen">
+		<div class="flex flex-col h-screen">
+			<div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex-grow">
+				<!-- Title -->
+				<div class="text-center">
+					<h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
+						Welcome to Laundry Asssistant
+					</h1>
+					<p class="mt-3 text-gray-600 dark:text-neutral-400">
+						Your AI-powered laundry assistant
+					</p>
+				</div>
+				<!-- End Title -->
+
+				<ul class="mt-16 space-y-5">
+					<!-- Chat Bubble -->
+					<li class="flex gap-x-2 sm:gap-x-4">
+						<!-- <svg class="shrink-0 size-9.5 rounded-full" width="38" height="38" viewBox="0 0 38 38" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect width="38" height="38" rx="6" fill="#2563EB" />
+						<path
+							d="M10 28V18.64C10 13.8683 14.0294 10 19 10C23.9706 10 28 13.8683 28 18.64C28 23.4117 23.9706 27.28 19 27.28H18.25"
+							stroke="white" stroke-width="1.5" />
+						<path
+							d="M13 28V18.7552C13 15.5104 15.6863 12.88 19 12.88C22.3137 12.88 25 15.5104 25 18.7552C25 22 22.3137 24.6304 19 24.6304H18.25"
+							stroke="white" stroke-width="1.5" />
+						<ellipse cx="19" cy="18.6554" rx="3.75" ry="3.6" fill="white" />
+					</svg> -->
+						<span
+							class="shrink-0 inline-flex items-center justify-center size-9.5 rounded-full bg-blue-600">
+							<span class="text-sm font-medium text-white">AI</span>
+						</span>
+						<!-- Card -->
+						<div
+							class="inline-block bg-white border border-gray-200 rounded-lg p-4 space-y-3 dark:bg-neutral-900 dark:border-neutral-700">
+							<div class="space-y-1.5">
+								<p class="mb-1.5 text-sm text-gray-800 dark:text-white">
+									You can ask questions like:
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic dolorem, incidunt
+									eius voluptatem nisi cum nam eveniet quidem magni rerum sed nesciunt unde autem
+									optio
+									nulla ducimus tempore beatae.
+								</p>
+							</div>
+						</div>
+						<!-- End Card -->
+					</li>
+					<!-- End Chat Bubble -->
+
+					<!-- Chat Bubble -->
+					<li class="max-w-2xl ms-auto flex justify-end gap-x-2 sm:gap-x-4">
+						<div class="grow text-end space-y-3">
+							<!-- Card -->
+							<div class="inline-block bg-blue-600 rounded-lg p-4 shadow-2xs">
+								<p class="text-sm text-white">
+									what's preline ui?
+								</p>
+							</div>
+							<!-- End Card -->
+						</div>
+
+						<span
+							class="shrink-0 inline-flex items-center justify-center size-9.5 rounded-full bg-gray-600">
+							<span class="text-sm font-medium text-white">D</span>
+						</span>
+					</li>
+					<!-- End Chat Bubble -->
+
+				</ul>
+			</div>
+		</div>
+		<div
+			class="max-w-4xl mx-auto sticky bottom-0 z-10 bg-white border-t border-gray-200 pt-2 pb-4 sm:pt-4 sm:pb-6 px-4 sm:px-6 lg:px-0 dark:bg-neutral-900 dark:border-neutral-700">
+			<!-- Textarea -->
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0">
+				<div class="mb-3">
+					<form>
+						<label for="file-input" class="sr-only">Choose file</label>
+						<input type="file" name="file-input" id="file-input" multiple accept="image/jpeg, image/jpg"
+							class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
+				      file:bg-gray-50 file:border-0
+				      file:me-4
+				      file:py-2 file:px-4
+				      dark:file:bg-neutral-700 dark:file:text-neutral-400">
+					</form>
+				</div>
+				<!-- Input -->
+				<div class="relative">
+					<textarea id="prompt-input"
+						class="p-3 sm:p-4 pb-12 sm:pb-12 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+						placeholder="Ask me anything..."></textarea>
+
+					<!-- Toolbar -->
+					<div class="absolute bottom-px inset-x-px p-2 rounded-b-lg bg-white dark:bg-neutral-900">
+						<div class="flex flex-wrap justify-end items-center gap-2">
+							<!-- Button Group -->
+							<div class="flex items-center gap-x-1">
+								<!-- Send Button -->
+								<button type="button"
+									class="inline-flex shrink-0 justify-center items-center size-8 rounded-lg text-white bg-blue-600 hover:bg-blue-500 focus:z-10 focus:outline-hidden focus:bg-blue-500"
+									onclick="process()">
+									<svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16"
+										height="16" fill="currentColor" viewBox="0 0 16 16">
+										<path
+											d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+									</svg>
+								</button>
+								<!-- End Send Button -->
+							</div>
+							<!-- End Button Group -->
+						</div>
+					</div>
+					<!-- End Toolbar -->
+				</div>
+				<!-- End Input -->
+			</div>
+			<!-- End Textarea -->
+		</div>
+	</div>
+	<!-- End Content -->
+	<script>
+		const showToast = (message) => {
+			if (toast_timeout_id === null) {
+				clearTimeout(toast_timeout_id);
+			}
+			const toasts = document.getElementById('toasts');
+			toasts.innerHTML =
+				`<div
+					class="max-w-xs bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg dark:bg-red-800/10 dark:border-red-900 dark:text-red-500"
+					role="alert" tabindex="-1" aria-labelledby="hs-toast-soft-color-red-label">
+					<div id="hs-toast-soft-color-red-label" class="flex p-4">
+					${message}
+
+					<div class="ms-auto">
+						<button type="button"
+						class="inline-flex shrink-0 justify-center items-center size-5 rounded-lg text-red-800 opacity-50 hover:opacity-100 focus:outline-none focus:opacity-100 dark:text-red-200"
+						onclick="clearToast()">
+						<span class="sr-only">Close</span>
+						<svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+							fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M18 6 6 18"></path>
+							<path d="m6 6 12 12"></path>
+						</svg>
+						</button>
+					</div>
+					</div>
+				</div>`
+			toast_timeout_id = setTimeout(clearToast, 5000);
+		}
+
+		const clearToast = () => {
+			const toasts = document.getElementById('toasts');
+			toasts.innerHTML = '';
+			toast_timeout_id = null;
+		}
+
+		let toast_timeout_id = null;
+
+		async function infer_symbols (images) {
+			const formData = new FormData();
+			for (let i = 0; i < images.length; i++) {
+				formData.append('images', images[i]);
+			}
+
+			const res = await fetch('http://129.154.239.171:3000/inference', {
+				method: 'POST',
+				headers: {
+					'accept': 'application/json'
+				},
+				body: formData
+			});
+			const data = await res.json();
+
+			if (!res.ok) {
+				showToast('Something went wrong, failed to infer symbols');
+				return;
+			}
+
+			const results = data.data.results;
+			const classes = results.map(result => {
+				const classes = result.map(e => e.name);
+				return classes;
+			});
+			return classes;
+		}
+
+		async function process () {
+			console.log('processing....');
+
+			const images = document.getElementById('file-input');
+			const prompt = document.getElementById('prompt-input');
+
+			let symbols = []
+			if (images.files.length > 0) {
+				symbols = await infer_symbols(images.files);
+			}
+			console.log(symbols);
+		}
+	</script>
+</body>
+
+</html>
