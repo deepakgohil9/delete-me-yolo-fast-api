@@ -1,0 +1,150 @@
+{
+	"img-1": [
+		{
+			"name": "bleach-dont",
+			"confidence": 0.24683
+		},
+		{
+			"name": "wash-easycare-30",
+			"confidence": 0.32157
+		}
+	],
+	"img-2": [
+		{
+			"name": "bleach-dont",
+			"confidence": 0.56656
+		},
+		{
+			"name": "iron-medium",
+			"confidence": 0.76234
+		},
+		{
+			"name": "professional-dry-p",
+			"confidence": 0.93008
+		},
+		{
+			"name": "wash-easycare-30",
+			"confidence": 0.57463
+		}
+	],
+	"img-3": [
+		{
+			"name": "bleach-dont",
+			"confidence": 0.95581
+		},
+		{
+			"name": "drying-line",
+			"confidence": 0.47378
+		},
+		{
+			"name": "professional-dry-p",
+			"confidence": 0.91371
+		},
+		{
+			"name": "wash-easycare-30",
+			"confidence": 0.43571
+		}
+	],
+	"img-4": [
+		{
+			"name": "bleach-dont",
+			"confidence": 0.88265
+		},
+		{
+			"name": "iron-low",
+			"confidence": 0.94758
+		},
+		{
+			"name": "professional-dry-dont",
+			"confidence": 0.96121
+		},
+		{
+			"name": "tumble-dry-low",
+			"confidence": 0.52531
+		},
+		{
+			"name": "wash-easycare-30",
+			"confidence": 0.31343
+		}
+	],
+	"img-5": [
+		{
+			"name": "bleach-dont",
+			"confidence": 0.98163
+		},
+		{
+			"name": "drying-flat",
+			"confidence": 0.60524
+		},
+		{
+			"name": "iron-low",
+			"confidence": 0.75646
+		},
+		{
+			"name": "professional-dry-p",
+			"confidence": 0.75484
+		},
+		{
+			"name": "tumble-dry-dont",
+			"confidence": 0.97204
+		},
+		{
+			"name": "wash-delicate-40",
+			"confidence": 0.39627
+		}
+	],
+	"img-6": [
+		{
+			"name": "bleach-oxygen",
+			"confidence": 0.77629
+		},
+		{
+			"name": "iron-medium",
+			"confidence": 0.31078
+		},
+		{
+			"name": "professional-dry-dont",
+			"confidence": 0.89217
+		},
+		{
+			"name": "tumble-dry-dont",
+			"confidence": 0.87316
+		},
+		{
+			"name": "wash-hand",
+			"confidence": 0.48319
+		}
+	],
+	"img-7": [
+		{
+			"name": "bleach-oxygen",
+			"confidence": 0.40297
+		},
+		{
+			"name": "iron-medium",
+			"confidence": 0.75595
+		},
+		{
+			"name": "professional-dry-p",
+			"confidence": 0.9472
+		},
+		{
+			"name": "tumble-dry-dont",
+			"confidence": 0.83494
+		},
+		{
+			"name": "wash-cotton-30",
+			"confidence": 0.51769
+		}
+	],
+	"img-8": [
+		{
+			"name": "bleach-dont",
+			"confidence": 0.60815
+		},
+		{
+			"name": "professional-dry-p",
+			"confidence": 0.91671
+		}
+	]
+}
